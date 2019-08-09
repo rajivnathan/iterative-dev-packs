@@ -1,0 +1,18 @@
+name: springboot-pack
+language: java
+framework: spring
+image: ibmjava:8-sfj
+tasks:
+  - name: maven-build
+    buildimage: docker.io/maven:3.6
+    command: ["mvn package"]
+  - name: incremental-maven-build
+    buildimage: docker.io/maven:3.6
+    command: ["mvn compile"]
+  - name: server-start
+    command: ["./spring-stop.sh", "./spring-start.sh $NAME run"]
+scenarios:
+  - name: full-build
+    tasks: ["maven-build", "server-start"]
+  - name: incremental-build:
+    tasks: ["incremental-maven-build", "server-start"]
