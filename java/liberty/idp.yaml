@@ -1,18 +1,22 @@
-name: java-liberty-pack
-language: java
-framework: liberty
-image: docker.io/ibmcom/websphere-liberty:latest
-tasks:
-  - name: maven-build
-    buildimage: docker.io/maven:3.6
-    command: mvn package
-  - name: incremental-maven-build
-    buildimage: docker.io/maven:3.6
-    command: mvn compile
-  - name: server-start
-    command: /opt/ibm/wlp/bin/server start $SERVER
-scenarios:
-  - name: full-build
-    tasks: ["maven-build", "server-start"]
-  - name: incremental-build:
-    tasks: ["incremental-maven-build", "server-start"]
+apiVersion: codewind.dev/v1alpha1
+kind: IterativeDevelopmentPack
+metadata:
+  name: java-liberty-pack
+  language: java
+  framework: liberty
+  image: docker.io/ibmcom/websphere-liberty:latest
+spec:
+  tasks:
+    - name: maven-build
+      buildImage: docker.io/maven:3.6
+      command: mvn package
+    - name: incremental-maven-build
+      buildImage: docker.io/maven:3.6
+      command: mvn compile
+    - name: server-start
+      command: /opt/ibm/wlp/bin/server start $SERVER
+  scenarios:
+    - name: full-build
+      tasks: ["maven-build", "server-start"]
+    - name: incremental-build:
+      tasks: ["incremental-maven-build", "server-start"]
