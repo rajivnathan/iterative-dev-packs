@@ -4,8 +4,8 @@
         "description": "Java Iterative-Dev pack for WebSphere Liberty/Microprofile",
         "language": "java",
         "framework": "liberty",
-        "devpacks": {
-            "latest": "/java/liberty/idp.yaml"
+        "links": {
+            "self": "/java/liberty/idp.yaml"
         }
     },
     {
@@ -14,7 +14,7 @@
         "language": "java",
         "framework": "spring",
         "links": {
-            "latest": "/java/spring/idp.yaml"
+            "self": "/java/spring/idp.yaml"
         }
     },
     {
@@ -23,7 +23,7 @@
         "language": "javascript",
         "framework": "nodejs",
         "links": {
-            "latest": "/nodejs/idp.yaml"
+            "self": "/nodejs/idp.yaml"
         }
     }
 ]
