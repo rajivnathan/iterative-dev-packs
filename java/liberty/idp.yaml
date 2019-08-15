@@ -4,9 +4,8 @@ metadata:
   name: java-liberty-pack
   language: java
   framework: liberty
-  image: docker.io/ibmcom/websphere-liberty:latest
 spec:
-  tasks:
+  buildTasks:
     - name: maven-build
       buildImage: docker.io/maven:3.6
       command: mvn package
@@ -15,8 +14,14 @@ spec:
       command: mvn compile
     - name: server-start
       command: /opt/ibm/wlp/bin/server start $SERVER
+  runTasks:
+    - name: server-start
+      image: docker.io/ibmcom/websphere-liberty:latest
+      command: /opt/ibm/wlp/bin/server start $SERVER
   scenarios:
     - name: full-build
-      tasks: ["maven-build", "server-start"]
-    - name: incremental-build:
-      tasks: ["incremental-maven-build", "server-start"]
+      buildTasks: ["maven-build", "server-start"]
+      runTasks: ["server-start"]
+    - name: incremental-build
+      buildTasks: ["incremental-maven-build", "server-start"]
+      runTasks: ["server-start"]
