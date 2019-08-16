@@ -12,16 +12,14 @@ spec:
     - name: incremental-maven-build
       buildImage: docker.io/maven:3.6
       command: mvn compile
-    - name: server-start
-      command: /opt/ibm/wlp/bin/server start $SERVER
   runTasks:
     - name: server-start
       image: docker.io/ibmcom/websphere-liberty:latest
       command: /opt/ibm/wlp/bin/server start $SERVER
   scenarios:
     - name: full-build
-      buildTasks: ["maven-build", "server-start"]
+      buildTasks: ["maven-build"]
       runTasks: ["server-start"]
     - name: incremental-build
-      buildTasks: ["incremental-maven-build", "server-start"]
+      buildTasks: ["incremental-maven-build"]
       runTasks: ["server-start"]
