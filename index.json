@@ -5,7 +5,7 @@
         "language": "java",
         "framework": "liberty",
         "devpacks": {
-            "self": "/java/liberty/idp.yaml"
+            "latest": "/java/liberty/idp.yaml"
         }
     },
     {
@@ -14,7 +14,7 @@
         "language": "java",
         "framework": "spring",
         "devpacks": {
-            "self": "/java/spring/idp.yaml"
+            "latest": "/java/spring/idp.yaml"
         }
     },
     {
@@ -23,7 +23,7 @@
         "language": "javascript",
         "framework": "nodejs",
         "devpacks": {
-            "self": "/nodejs/idp.yaml"
+            "latest": "/nodejs/idp.yaml"
         }
     }
 ]
