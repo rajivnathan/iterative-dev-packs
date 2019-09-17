@@ -20,12 +20,12 @@ spec:
       - /target
       
   runtime:
-    image: node-10:alpine
+    image: node:10-alpine
     endpoints:
       containerHealth: /health
       appRoot: /app
     ports:
-      internalHttpPort: 8080 
+      internalHttpPort: 8080
     logs:
     - type: some.type
       path: /logs/(etc)
