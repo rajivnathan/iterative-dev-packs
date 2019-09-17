@@ -1,6 +1,6 @@
 [
     {
-        "name": "java-dev-pack",
+        "name": "java",
         "description": "Java Iterative-Dev pack for WebSphere Liberty/Microprofile",
         "language": "java",
         "framework": "liberty",
@@ -9,7 +9,7 @@
         }
     },
     {
-        "name": "spring-dev-pack",
+        "name": "spring",
         "description": "Springboot Java Iterative-Dev Pack",
         "language": "java",
         "framework": "spring",
@@ -18,7 +18,7 @@
         }
     },
     {
-        "name": "nodejs-idp",
+        "name": "nodejs",
         "description": "NodeJS Iterative-Dev Pack",
         "language": "javascript",
         "framework": "nodejs",
