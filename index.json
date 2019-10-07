@@ -1,20 +1,20 @@
 [
     {
-        "name": "java",
-        "description": "Java Iterative-Dev pack for WebSphere Liberty/Microprofile",
+        "name": "go",
+        "description": "Go Iterative-Dev pack for Go",
+        "language": "go",
+        "framework": "go",
+        "devpack": {
+            "self": "/go/idp.yaml"
+        }
+    },
+    {
+        "name": "liberty",
+        "description": "Liberty Iterative-Dev Pack",
         "language": "java",
         "framework": "liberty",
         "devpack": {
             "self": "/java/liberty/idp.yaml"
-        }
-    },
-    {
-        "name": "spring",
-        "description": "Springboot Java Iterative-Dev Pack",
-        "language": "java",
-        "framework": "spring",
-        "devpacks": {
-            "self": "/java/spring/idp.yaml"
         }
     },
     {
