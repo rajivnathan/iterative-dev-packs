@@ -1,16 +1,7 @@
 [
     {
-        "name": "go",
-        "description": "Go Iterative-Dev pack for Go",
-        "language": "go",
-        "framework": "go",
-        "devpack": {
-            "self": "/go/idp.yaml"
-        }
-    },
-    {
-        "name": "liberty",
-        "description": "Liberty Iterative-Dev Pack",
+        "name": "microprofile",
+        "description": "Java Microprofile Iterative-Dev Pack",
         "language": "java",
         "framework": "liberty",
         "devpack": {
@@ -18,12 +9,12 @@
         }
     },
     {
-        "name": "nodejs",
-        "description": "NodeJS Iterative-Dev Pack",
-        "language": "javascript",
-        "framework": "nodejs",
+        "name": "microprofile-buildtasks",
+        "description": "Java Microprofile Iterative-Dev Pack using the IDP build task model",
+        "language": "java",
+        "framework": "liberty",
         "devpack": {
-            "self": "/nodejs/idp.yaml"
+            "self": "/java/liberty-buildtasks/idp.yaml"
         }
     }
 ]
