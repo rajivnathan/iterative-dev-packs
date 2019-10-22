@@ -1,7 +1,7 @@
 [
     {
         "name": "microprofile",
-        "description": "Java Microprofile Iterative-Dev Pack",
+        "description": "Java Microprofile Iterative-Dev Pack using the IDP runtime task model",
         "language": "java",
         "framework": "liberty",
         "devpack": {
@@ -15,6 +15,24 @@
         "framework": "liberty",
         "devpack": {
             "self": "/java/liberty-buildtasks/idp.yaml"
+        }
+    },
+    {
+        "name": "spring",
+        "description": "Java Spring Iterative-Dev Pack using the IDP runtime task model",
+        "language": "java",
+        "framework": "liberty",
+        "devpack": {
+            "self": "/java/spring/idp.yaml"
+        }
+    },
+    {
+        "name": "spring-buildtasks",
+        "description": "Java Spring Iterative-Dev Pack using the IDP build task model",
+        "language": "java",
+        "framework": "liberty",
+        "devpack": {
+            "self": "/java/spring-buildtasks/idp.yaml"
         }
     }
 ]
