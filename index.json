@@ -6,7 +6,11 @@
         "framework": "liberty",
         "devpack": {
             "self": "/java/liberty/idp.yaml"
-        }
+        },
+        "artifacts": [
+            "/java/liberty/bin/runtime-container-full.sh",
+            "/java/liberty/bin/runtime-container-update.sh"
+        ]
     },
     {
         "name": "microprofile-buildtasks",
@@ -15,7 +19,11 @@
         "framework": "liberty",
         "devpack": {
             "self": "/java/liberty-buildtasks/idp.yaml"
-        }
+        },
+        "artifacts": [
+            "/java/liberty-buildtasks/bin/build-container-full.sh",
+            "/java/liberty-buildtasks/bin/build-container-update.sh"
+        ]
     },
     {
         "name": "spring",
@@ -24,7 +32,10 @@
         "framework": "liberty",
         "devpack": {
             "self": "/java/spring/idp.yaml"
-        }
+        },
+        "artifacts": [
+            "/java/spring/bin/runtime-container-full.sh"
+        ]
     },
     {
         "name": "spring-buildtasks",
@@ -33,6 +44,10 @@
         "framework": "liberty",
         "devpack": {
             "self": "/java/spring-buildtasks/idp.yaml"
-        }
+        },
+        "artifacts": [
+            "/java/spring-buildtasks/bin/build-container-full.sh",
+            "/java/spring-buildtasks/bin/start-server.sh"
+        ]
     }
 ]
