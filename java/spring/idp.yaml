@@ -46,7 +46,7 @@ spec:
       appRoot: /app # Not a health check
 
     ports: # All are optional, display a warning if neither HTTP port is specified
-      internalHttpPort: 9080 
+      internalHttpPort: 8080
       internalHttpsPort: 9443
       internalDebugPort: 7777
       internalPerformancePort: 9050
