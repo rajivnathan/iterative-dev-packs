@@ -58,6 +58,7 @@ spec:
     volumeMappings: #  Optional: ability to map paths in the container to persistent volume paths
     - volumeName: shared-data-volume
       containerPath: /config
+      subPath: projects/buildartifacts/
 
   shared:
 
@@ -68,6 +69,7 @@ spec:
       # At least one entry must be specified: A volume is required for shared/standalone tasks
       - volumeName: shared-data-volume
         containerPath: /data/idp/
+        subPath: projects/
       # Map a directory for the task to copy data to runtime, or for some other arbitrary purpose
       env: # Optional key/value env var pairs, as above
 
@@ -127,9 +129,6 @@ spec:
       logs: # Ability to reference arbitrary log file types that aren't included in container stderr/stdout
       - type: maven.build
         path: /logs/(etc)
-      sourceMapping: # Optional: Ability to map files in the local project directory (eg the user's current working dir)` into the container
-        destPath: "/home/default/idp/src" # path inside container to copy the folder
-        setExecuteBit: true # Set execute bit on all files in the directory
       # This is used to know where the source files should be copied into the container, might be useful for other scenarios like customization
       # Path should be a valid path within the container (but if volumes are mapped into paths in the container, you can use those volume paths)
       env: # Optional key/value env var pairs, as above
