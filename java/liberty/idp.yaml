@@ -73,7 +73,7 @@ spec:
     - name: full-maven-build
       type: Runtime # Required field: One of: Runtime (task runs in runtime container), Shared (task runs outside runtime, but shares a container with another task), Standalone (task runs outside runtime, should not share a container with another task)
       command: 
-      - "/home/default/idp/src/.udo/bin/runtime-container-full.sh" # could also just be a normal command ala `mvn clean package`
+      - "/home/default/idp/scripts/bin/runtime-container-full.sh" # could also just be a normal command ala `mvn clean package`
       # Tasks containers will always be started with a command to tail -f /dev/null, so that they persist. The actual tasks themselves will be run w/ kubectl exec
       workingDirectory: /home/default/idp/src # optional, where in the container to run the command
       logs: # Ability to reference arbitrary log file types that aren't included in container stderr/stdout
@@ -84,14 +84,19 @@ spec:
         setExecuteBit: true # Set execute bit on all files in the directory
       # This is used to know where the source files should be copied into the container, might be useful for other scenarios like customization
       # Path should be a valid path within the container (but if volumes are mapped into paths in the container, you can use those volume paths)
-      env: # Optional key/value env var pairs, as above
+      idpRepoMappings:
+        - srcPath: "/bin"
+          destPath: "/home/default/idp/scripts"
+          setExecuteBit: true # Set execute bit on a single file
+      # Note: The user permissions must have write access to destPath in order for syncing to work
+      # env: # Optional key/value env var pairs, as above
       # Values specified here will replace those specified in container, if there is an overlap.
         # Task containers will ALWAYS stay up and be reused after they are used (eg they will never be disposed of after a single use).
     # Tasks that share the same build image will ALWAYS run in the same container during a scenario.
     - name: incremental-maven-build
       type: Runtime # Required field: One of: Runtime (task runs in runtime container), Shared (task runs outside runtime, but shares a container with another task), Standalone (task runs outside runtime, should not share a container with another task)
       command: 
-      - "/home/default/idp/src/.udo/bin/runtime-container-update.sh" # could also just be a normal command ala `mvn clean package`
+      - "/home/default/idp/scripts/bin/runtime-container-update.sh" # could also just be a normal command ala `mvn clean package`
       # Tasks containers will always be started with a command to tail -f /dev/null, so that they persist. The actual tasks themselves will be run w/ kubectl exec
       workingDirectory: /home/default/idp/src # optional, where in the container to run the command
       logs: # Ability to reference arbitrary log file types that aren't included in container stderr/stdout
@@ -102,7 +107,12 @@ spec:
         setExecuteBit: true # Set execute bit on all files in the directory
       # This is used to know where the source files should be copied into the container, might be useful for other scenarios like customization
       # Path should be a valid path within the container (but if volumes are mapped into paths in the container, you can use those volume paths)
-      env: # Optional key/value env var pairs, as above
+      idpRepoMappings:
+        - srcPath: "/bin"
+          destPath: "/home/default/idp/scripts"
+          setExecuteBit: true # Set execute bit on a single file
+      # Note: The user permissions must have write access to destPath in order for syncing to work
+      # env: # Optional key/value env var pairs, as above
       # Values specified here will replace those specified in container, if there is an overlap.
 
 
