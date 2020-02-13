@@ -20,30 +20,6 @@ components:
     memoryLimit: 768Mi
     command: ['tail']
     args: [ '-f', '/dev/null']
-    env:
-      - name: "MODE"
-        value: "TEST"
-      - name: "myprop"
-        value: "myval"
-    endpoints:
-      - name: '9090/tcp'
-        port: 9090
-    mountSources: true
-    volumes:
-      - name: m2
-        containerPath: /home/user/.m2
-  -
-    type: dockerimage
-    image: jeevandroid/open-liberty-dev:latest
-    alias: build
-    memoryLimit: 768Mi
-    command: ['tail']
-    args: [ '-f', '/dev/null']
-    env:
-      - name: "MODE2"
-        value: "TEST2"
-      - name: "myprop2"
-        value: "myval2"
     endpoints:
       - name: '9090/tcp'
         port: 9090
@@ -53,18 +29,18 @@ components:
         containerPath: /home/user/.m2
 commands:
   -
-    name: Build
+    name: Full build
     actions:
       -
         type: exec
         component: runtime
-        command: "TEST_ENV=true /artifacts/bin/build.sh"
+        command: "/artifacts/bin/full-build.sh"
         workdir: /projects/openLiberty
   -
-    name: Run
+    name: Update build
     actions:
       -
         type: exec
         component: runtime
-        command: "/artifacts/bin/run.sh"
+        command: "/artifacts/bin/update-build.sh"
         workdir: /projects/openLiberty

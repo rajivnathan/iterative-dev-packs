@@ -5,6 +5,12 @@
 date
 echo Started - Full build
 
+if [ "$TEST_ENV" = "true" ]; then
+    echo "Running in test mode"
+else
+    echo "Running in development mode"
+fi
+
 if [ ! -f pom.xml ]; then
     echo "The current working directory ($PWD) does not contain a maven project"
     exit 1
@@ -22,7 +28,7 @@ if [ ! $? -eq 0 ]; then
     echo "The maven build failed"
     exit 1
 fi
-echo "Maven build completed"
+
 date
 
 echo Target directory contents after maven build:
@@ -39,14 +45,6 @@ rm -rf /config/*
 cp -r $CONFIGDIR/* /config/
 cp -r resources /opt/ol/wlp/output/defaultServer
 ls -la /config/
-
-date
-echo Starting the server
-nohup /opt/ol/wlp/bin/server start
-if [ ! $? -eq 0 ]; then
-    echo "The server start failed"
-    exit 1
-fi
 
 date
 echo Finished - Full build
